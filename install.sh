@@ -71,7 +71,10 @@ for item in "${array[@]}"; do
             sudo add-apt-repository ppa:neovim-ppa/stable > /dev/null && \
             sudo apt-get update > /dev/null && \
             sudo apt-get install neovim -y > /dev/null;
-        else 
+        elif [[ $item == "i3" ]]; then
+            installed_i3=true
+        else
+            installed_i3=false
             sudo apt update > /dev/null && sudo apt install $item -y > /dev/null;
         fi
     fi
@@ -87,9 +90,8 @@ if [ -d ~/.config/tmux ]; then
 else mkdir ~/.config/tmux && cp tmux/tmux.conf ~/.config/tmux/tmux.conf
 fi
 
-if [ -d ~/.config/i3 ]; then
-    cp i3/config ~/.config/i3/config
-else mkdir ~/.config/i3 && cp i3/config ~/.config/i3/config
+if [ -d ~/.config/i3 ] && installed_i3=true; then
+    cp i3/config ~/.config/i3/config && cp i3/desktop_wallpaper /opt/desktop_wallpaper
 fi
 
 cp -r nvim/ ~/.config
@@ -103,7 +105,8 @@ cp oh-my-zsh/themes/robbyrussell_modified.zsh-theme ~/.oh-my-zsh/themes/
 echo "[!] Checking if pip is installed and if not, install it"
 which pip > /dev/null
 if [ $? -ne 0 ]; then echo "[+] Installing pip & openai" && sudo apt install python3-pip -y; fi
-pip list | grep -i openai > /dev/null
+pip list | grep -i openai | grep -i openai > /dev/null
+if [ $? -eq 0 ]; then 
 if [ $? -ne 0 ]; then pip install openai > /dev/null; fi
 echo "[!] Copying the chatgpt scripts"
 cp chatgpt/howto* ~
