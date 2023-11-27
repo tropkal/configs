@@ -106,7 +106,7 @@ echo "[!] Checking if pip is installed and if not, install it"
 which pip > /dev/null
 if [ $? -ne 0 ]; then echo "[+] Installing pip & openai" && sudo apt install python3-pip -y; fi
 pip list | grep -i openai | grep -i openai > /dev/null
-if [ $? -eq 0 ]; then 
+#if [ $? -eq 0 ]; then 
 if [ $? -ne 0 ]; then pip install openai > /dev/null; fi
 echo "[!] Copying the chatgpt scripts"
 cp chatgpt/howto* ~
