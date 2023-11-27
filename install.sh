@@ -90,10 +90,7 @@ if [ -d ~/.config/i3 ]; then
 else mkdir ~/.config/i3 && cp i3/config ~/.config/i3/config
 fi
 
-if [ -d ~/.config/nvim ]; then
-    cp -r nvim/ ~/.config/nvim
-else mkdir ~/.config/nvim && cp -r nvim/ ~/.config/nvim
-fi
+cp -r nvim/ ~/.config
 
 # copy the `robbyrussell_modified` zsh theme
 echo "[!] Copying the zsh theme"
