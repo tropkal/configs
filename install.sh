@@ -62,17 +62,17 @@ for item in "${array[@]}"; do
 
     if [[ $answer == "y" ]]; then 
         if [[ $item == "zsh" ]]; then
-            sudo apt update && sudo apt install zsh -y && \
-            sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+            sudo apt update > /dev/null && sudo apt install zsh -y > /dev/null && \
+            sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended > /dev/null
         elif [[ $item == "nvim" ]]; then
             # 1st install `software-properties-common` to be able to use `add-apt-repository`
-            sudo apt-get install software-properties-common -y && \
+            sudo apt-get install software-properties-common -y > /dev/null && \
             # add the neovim-ppa/stable repo and install neovim
-            sudo add-apt-repository ppa:neovim-ppa/stable && \
-            sudo apt-get update && \
-            sudo apt-get install neovim -y;
+            sudo add-apt-repository ppa:neovim-ppa/stable > /dev/null && \
+            sudo apt-get update > /dev/null && \
+            sudo apt-get install neovim -y > /dev/null;
         else 
-            sudo apt update && sudo apt install $item -y;
+            sudo apt update > /dev/null && sudo apt install $item -y > /dev/null;
         fi
     fi
 done
