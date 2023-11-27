@@ -38,12 +38,6 @@ if [ -f ~/.zshrc ]; then
     fi
 fi
 
-if [ -d ~/.local/share/nvim ]; then
-    read -p "Want to backup ~/.local/share/nvim (plugins/remaps,etc) ? [y/n] " answer
-    if [[ $answer == "y" ]]; then mv ~/.local/share/nvim ~/.local/share/nvim.bak; 
-    fi
-fi
-
 # check if tmux/nvim/i3/zsh is already installed and if not, ask to install
 array=()
 
