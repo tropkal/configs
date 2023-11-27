@@ -91,7 +91,7 @@ else mkdir ~/.config/tmux && cp tmux/tmux.conf ~/.config/tmux/tmux.conf
 fi
 
 if [ -d ~/.config/i3 ] && installed_i3=true; then
-    cp i3/config ~/.config/i3/config && cp i3/desktop_wallpaper /opt/desktop_wallpaper
+    cp i3/config ~/.config/i3/config && cp i3/desktop_wallpaper.jpg /opt/desktop_wallpaper.jpg
 fi
 
 cp -r nvim/ ~/.config
