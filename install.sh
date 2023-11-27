@@ -98,14 +98,6 @@ fi
 
 cp -r nvim/ ~/.config
 
-# copying the nvim plugins/remaps, etc
-
-if [ -d ~/.local/share/nvim ]; then
-    cp -r local/share/nvim ~/.local/share/nvim
-else 
-    mkdir -p ~/.local/share/nvim && cp -r local/share/nvim ~/.local/share/nvim
-fi
-
 # copy the `robbyrussell_modified` zsh theme
 echo "[!] Copying the zsh theme"
 cp oh-my-zsh/themes/robbyrussell_modified.zsh-theme ~/.oh-my-zsh/themes/
