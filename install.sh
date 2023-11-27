@@ -54,7 +54,7 @@ which nvim > /dev/null
 if [ $? -ne 0 ]; then echo "[!] nvim isn't installed"; array+=("nvim"); else echo "[+] nvim is installed in $(which nvim)"; fi
 
 which npm > /dev/null
-if [ $? -ne 0 ]; then echo "[!] npm isn't installed"; array+=("nvim"); else echo "[+] npm is installed in $(which nvim)"; fi
+if [ $? -ne 0 ]; then echo "[!] npm isn't installed"; array+=("npm"); else echo "[+] npm is installed in $(which npm)"; fi
 
 # the array contains items which aren't installed
 for item in "${array[@]}"; do
