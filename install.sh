@@ -98,5 +98,8 @@ fi
 # copy the `robbyrussell_modified` zsh theme
 cp oh-my-zsh/themes/robbyrussell_modified.zsh-theme ~/.oh-my-zsh/themes/
 
-echo "[!] Copy/make your own robbyrussell_modified.zsh-theme.zshrc file"
+# copy the chatgpt scripts
+cp chatgpt/howto* ~
+
+echo "[!] Copy/make your own zshrc file!"
 echo "[+] Done copying the configs, enjoy xD"
