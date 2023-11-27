@@ -60,6 +60,7 @@ for item in "${array[@]}"; do
 
     if [[ $answer == "y" ]]; then 
         if [[ $item == "zsh" ]]; then
+            sudo apt update && sudo apt install zsh -y && \
             sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)";
         elif [[ $item == "nvim" ]]; then
             # 1st install `software-properties-common` to be able to use `add-apt-repository`
