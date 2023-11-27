@@ -53,6 +53,8 @@ if [ $? -ne 0 ]; then echo "[!] zsh isn't installed"; array+=("zsh"); else echo 
 which nvim > /dev/null
 if [ $? -ne 0 ]; then echo "[!] nvim isn't installed"; array+=("nvim"); else echo "[+] nvim is installed in $(which nvim)"; fi
 
+which npm > /dev/null
+if [ $? -ne 0 ]; then echo "[!] npm isn't installed"; array+=("nvim"); else echo "[+] npm is installed in $(which nvim)"; fi
 
 # the array contains items which aren't installed
 for item in "${array[@]}"; do
