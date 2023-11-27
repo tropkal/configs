@@ -106,8 +106,10 @@ echo "[!] Copying the chatgpt scripts"
 cp chatgpt/howto* ~
 
 # install nvim plugins
-echo "[!] Installing the packer plugin manager for nvim"
-git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim > /dev/null
+echo "[!] Installing the packer plugin manager for nvim if it's not installed already"
+if [ ! -d ~/.local/share/nvim/site/pack ]; then
+    git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim > /dev/null
+fi
 
 echo "[!] Copy/make your own zshrc file!"
 echo "[+] Done copying the configs, enjoy xD"
