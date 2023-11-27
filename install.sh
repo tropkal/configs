@@ -119,5 +119,9 @@ pip install openai > /dev/null
 echo "[!] Copying the chatgpt scripts"
 cp chatgpt/howto* ~
 
+# install nvim plugins
+echo "[!] Installing the packer plugin manager for nvim"
+git clone --depth 1 https://github.com/wbthomason/packer.nvim ~/.local/share/nvim/site/pack/packer/start/packer.nvim > /dev/null
+
 echo "[!] Copy/make your own zshrc file!"
 echo "[+] Done copying the configs, enjoy xD"
