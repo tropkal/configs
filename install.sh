@@ -99,11 +99,11 @@ fi
 echo "[!] Copying the zsh theme"
 cp oh-my-zsh/themes/robbyrussell_modified.zsh-theme ~/.oh-my-zsh/themes/
 
-# copy the chatgpt scripts, install openapi using pip and install pip if its not already installed 
+# copy the chatgpt scripts, install openai using pip and install pip if its not already installed 
 # dont forget to manually copy your chatgpt api key
 echo "[!] Checking if pip is installed and if not, install it"
 which pip > /dev/null
-if [ $? -ne 0 ]; then echo "[+] Installing pip & openapi" && sudo apt install python3-pip -y; fi
+if [ $? -ne 0 ]; then echo "[+] Installing pip & openai" && sudo apt install python3-pip -y; fi
 pip install openai > /dev/null
 echo "[!] Copying the chatgpt scripts"
 cp chatgpt/howto* ~
