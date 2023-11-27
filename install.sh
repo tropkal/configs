@@ -95,5 +95,8 @@ if [ -d ~/.config/nvim ]; then
 else mkdir ~/.config/nvim && cp -r nvim/ ~/.config/nvim
 fi
 
-echo "[!] Copy/make your own .zshrc file"
+# copy the `robbyrussell_modified` zsh theme
+cp oh-my-zsh/themes/robbyrussell_modified.zsh-theme ~/.oh-my-zsh/themes/
+
+echo "[!] Copy/make your own robbyrussell_modified.zsh-theme.zshrc file"
 echo "[+] Done copying the configs, enjoy xD"
