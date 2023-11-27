@@ -96,10 +96,18 @@ else mkdir ~/.config/nvim && cp -r nvim/ ~/.config/nvim
 fi
 
 # copy the `robbyrussell_modified` zsh theme
+echo "[!] Copying the zsh theme"
 cp oh-my-zsh/themes/robbyrussell_modified.zsh-theme ~/.oh-my-zsh/themes/
 
-# copy the chatgpt scripts
+# copy the chatgpt scripts, install openapi using pip and install pip if its not already installed 
+# dont forget to manually copy your chatgpt api key
+echo "[!] Checking if pip is installed and if not, install it"
+which pip
+if [ $? -ne 0 ]; then echo "[+] Installing pip & openapi" && sudo apt install python3-pip -y; fi
+pip install openai
+echo "[!] Copying the chatgpt scripts"
 cp chatgpt/howto* ~
+cp chatgpt/.gpt_api_key.txt ~
 
 echo "[!] Copy/make your own zshrc file!"
 echo "[+] Done copying the configs, enjoy xD"
