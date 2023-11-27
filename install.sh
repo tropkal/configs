@@ -63,14 +63,13 @@ for item in "${array[@]}"; do
             wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh -O ~/ohmyzsh.sh && bash ~/ohmyzsh.sh && rm ~/ohmyzsh.sh;
         elif [[ $item == "nvim" ]]; then
             # 1st install `software-properties-common` to be able to use `add-apt-repository`
-            sudo apt-get install software-properties-common -y
+            sudo apt-get install software-properties-common -y && \
             # add the neovim-ppa/stable repo and install neovim
-            sudo add-apt-repository ppa:neovim-ppa/stable
-            sudo apt-get update
-            sudo apt-get install neovim -y
+            sudo add-apt-repository ppa:neovim-ppa/stable && \
+            sudo apt-get update && \
+            sudo apt-get install neovim -y;
         else 
-            sudo apt update
-            sudo apt install $item -y;
+            sudo apt update && sudo apt install $item -y;
         fi
     fi
 done
@@ -78,10 +77,22 @@ done
 # Prerequisites for the Python modules; dont think I need this, found it on neovim's installing steps on github
 # sudo apt-get install python-dev python-pip python3-dev python3-pip
 
-# copy the configs
-cp i3/config ~/.config/i3/config
-cp -r nvim/ ~/.config/nvim
-cp tmux/tmux.conf ~/.config/tmux/tmux.conf
+# check if the directories exist under ~/.config, if not, create them & copy the configs
+
+if [ -d ~/.config/tmux ]; then
+    cp tmux/tmux.conf ~/.config/tmux/tmux.conf
+else mkdir ~/.config/tmux && cp tmux/tmux.conf ~/.config/tmux/tmux.conf
+fi
+
+if [ -d ~/.config/i3 ]; then
+    cp i3/config ~/.config/i3/config
+else mkdir ~/.config/i3 && cp i3/config ~/.config/i3/config
+fi
+
+if [ -d ~/.config/nvim ]; then
+    cp -r nvim/ ~/.config/nvim
+else mkdir ~/.config/nvim && cp -r nvim/ ~/.config/nvim
+fi
 
 echo "[!] Copy/make your own .zshrc file"
 echo "[+] Done copying the configs, enjoy xD"
