@@ -2,7 +2,6 @@
 
 # do-release-upgrade to go from 20.04 to 22.04 for example
 # not being on 22.04 lts will not be able to install the proper nvim version
-# and shit isn't gonna work properly
 result=`lsb_release -r  | awk -F\  '{print $2}'`
 if (( $(echo "$result == 22.04" | bc -l) )); then
     echo "[+] Your installed version of Ubuntu is 22.04 which is good, continuing..."
@@ -14,6 +13,8 @@ else echo "[!] You need Ubuntu 22.04 for this script to work properly, do you wa
         echo "DUDE, ARE YOU REALLY SURE?"
         if [[ $answer == "y" ]]; then
             sudo do-release-upgrade
+        fi
+    fi
 fi
 
 ### Install tmux/nvim/i3 configs ###
