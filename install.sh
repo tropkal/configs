@@ -1,5 +1,21 @@
 #!/usr/bin/bash
 
+# do-release-upgrade to go from 20.04 to 22.04 for example
+# not being on 22.04 lts will not be able to install the proper nvim version
+# and shit isn't gonna work properly
+result=`lsb_release -r  | awk -F\  '{print $2}'`
+if (( $(echo "$result == 22.04" | bc -l) )); then
+    echo "[+] Your installed version of Ubuntu is 22.04 which is good, continuing..."
+else echo "[!] You need Ubuntu 22.04 for this script to work properly, do you want to upgrade to it?"
+    read -p echo "WARNING!! This will upgrade your distro to Ubuntu 22.04 LTS, ARE YOU SURE?" answer
+    if [[ $answer == "y" ]]; then
+        echo "[!] You will probably need to re-run this script after installing 22.04"
+        read -p "[!] Upgrading to Ubuntu 22.04 LTS. This is gonna take a while!" answer
+        echo "DUDE, ARE YOU REALLY SURE?"
+        if [[ $answer == "y" ]]; then
+            sudo do-release-upgrade
+fi
+
 ### Install tmux/nvim/i3 configs ###
 
 # ask to backup existing configs before overwriting them, just in case
@@ -67,8 +83,8 @@ for item in "${array[@]}"; do
         elif [[ $item == "nvim" ]]; then
             # 1st install `software-properties-common` to be able to use `add-apt-repository`
             sudo apt-get install software-properties-common -y > /dev/null && \
-            # add the neovim-ppa/stable repo and install neovim
-            sudo add-apt-repository ppa:neovim-ppa/stable > /dev/null && \
+            # add the neovim-ppa/unstable repo and install neovim
+            sudo add-apt-repository ppa:neovim-ppa/unstable > /dev/null && \
             sudo apt-get update > /dev/null && \
             sudo apt-get install neovim -y > /dev/null;
         elif [[ $item == "i3" ]]; then
