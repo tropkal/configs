@@ -83,11 +83,13 @@ for item in "${array[@]}"; do
 
     if [[ $answer == "y" ]]; then 
         if [[ $item == "zsh" ]]; then
-            sudo apt update > /dev/null && sudo apt install zsh -y > /dev/null && \
+            sudo apt-get update > /dev/null && sudo apt-get install zsh -y > /dev/null && \
             sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended > /dev/null
         elif [[ $item == "nvim" ]]; then
             # 1st install `software-properties-common` to be able to use `add-apt-repository`
-            # also install `python3-venv`, required for `python-lsp-server` in Mason
+            # also install `python3-venv`, required for `pylsp` in Mason
+            # also install `golang-1.21`, required for `gopls` in Mason
+            sudo apt-get install golang-1.21 -y > /dev/null && \
             sudo apt-get install python3-venv -y > /dev/null && \
             sudo apt-get install software-properties-common -y > /dev/null && \
             # add the neovim-ppa/unstable repo and install neovim
