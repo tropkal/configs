@@ -4,7 +4,7 @@
 # not being on 22.04 lts will not be able to install the proper nvim version
 # to be able to do this, we need to have `bc` installed, so installing that 1st
 echo "[!] Making sure we have bc installed first"
-sudo apt update && sudo apt install bc -y
+sudo apt update && sudo apt install bc -y > /dev/null
 
 result=`lsb_release -r  | awk -F\  '{print $2}'`
 if (( $(echo "$result == 22.04" | bc -l) )); then
