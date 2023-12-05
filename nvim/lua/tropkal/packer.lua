@@ -3,9 +3,11 @@
 -- Only required if you have packer configured as `opt`
 vim.cmd [[packadd packer.nvim]]
 
+-- this had a return before `require`, dk why
 return require("packer").startup(function(use)
     -- Packer can manage itself
-    use "wbthomason/packer.nvim"
+    -- this :packersync doesnt work, need to do it manually
+    use { "wbthomason/packer.nvim", run = ':PackerSync' }
 
     use {
         "nvim-telescope/telescope.nvim", tag = "0.1.4",
@@ -13,13 +15,11 @@ return require("packer").startup(function(use)
         requires = { {"nvim-lua/plenary.nvim"} }
     }
 
-    use({
-        "rose-pine/neovim",
-        as = "rose-pine"
-    })
-    use(
-        "nvim-treesitter/nvim-treesitter", {run = ":TSUpdate"
-    })
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' } -- Recommended, not required.
+
+    use { "rose-pine/neovim", as = "rose-pine" } -- aura-theme, catppuccin, gruvbox dark hard (no packer supp?)
+                                                 -- github dark default
+
     use {
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
@@ -35,6 +35,7 @@ return require("packer").startup(function(use)
     use("nvim-treesitter/playground")
     use("theprimeagen/harpoon")
     use("mbbill/undotree")
+
     use {
       "VonHeikemen/lsp-zero.nvim",
       branch = "v3.x",
@@ -56,4 +57,5 @@ return require("packer").startup(function(use)
         {"rafamadriz/friendly-snippets"},
       }
     }
+
 end)
