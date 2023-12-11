@@ -17,8 +17,10 @@ return require("packer").startup(function(use)
 
     use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' } -- Recommended, not required.
 
-    use { "rose-pine/neovim", as = "rose-pine" } -- aura-theme, catppuccin, gruvbox dark hard (no packer supp?)
+    -- use { "rose-pine/neovim", as = "rose-pine" } -- aura-theme, catppuccin, gruvbox dark hard (no packer supp?)
                                                  -- github dark default
+
+    use { "ellisonleao/gruvbox.nvim" }
 
     use {
         "windwp/nvim-autopairs",

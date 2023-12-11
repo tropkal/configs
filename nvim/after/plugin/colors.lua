@@ -3,4 +3,4 @@ function ColorMe(color)
     vim.cmd.colorscheme(color)
 end
 
-ColorMe()
+ColorMe("gruvbox")
