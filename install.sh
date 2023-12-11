@@ -139,6 +139,7 @@ cp chatgpt/howto* ~
 if [ ! -d ~/.tmux/plugins/tpm ]; then
     echo "[!] Installing the tmux plugin manager"
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+fi
 
 # install nvim plugins
 echo "[!] Installing the packer plugin manager for nvim if it's not installed already"
