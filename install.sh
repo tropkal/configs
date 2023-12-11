@@ -135,6 +135,11 @@ if [ $? -ne 0 ]; then pip install openai > /dev/null; fi
 echo "[!] Copying the chatgpt scripts"
 cp chatgpt/howto* ~
 
+# checking if the tmux plugin manager folder exists
+if [ ! -d ~/.tmux/plugins/tpm ]; then
+    echo "[!] Installing the tmux plugin manager"
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 # install nvim plugins
 echo "[!] Installing the packer plugin manager for nvim if it's not installed already"
 if [ ! -d ~/.local/share/nvim/site/pack ]; then
