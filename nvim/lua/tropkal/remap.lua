@@ -44,6 +44,9 @@ vim.keymap.set("n", "<leader>R", "<cmd>!%<CR>")
 vim.keymap.set("n", "<leader>gr", "<cmd>!go run %<CR>")
 vim.keymap.set("n", "<leader>cr", "<cmd>!cargo run %<CR>")
 
+-- switch between 2 vim buffers
+vim.keymap.set("n", "<leader>z", "<C-6>")
+
 -- remap the arrows keys for insert mode to holding ALT + h,j,k,l
 vim.api.nvim_set_keymap('i', '<A-h>', '<Left>', { noremap = true })
 vim.api.nvim_set_keymap('i', '<A-j>', '<Down>', { noremap = true })
