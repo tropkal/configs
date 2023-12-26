@@ -23,6 +23,12 @@ return require("packer").startup(function(use)
     use { "ellisonleao/gruvbox.nvim" }
 
     use {
+        "nvimdev/hlsearch.nvim",
+        event = "BufRead",
+        config = function() require("hlsearch").setup() end
+    }
+
+    use {
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
     }
@@ -33,6 +39,8 @@ return require("packer").startup(function(use)
             require('Comment').setup()
         end
     }
+
+
 
     use("nvim-treesitter/playground")
     use("theprimeagen/harpoon")
