@@ -9,7 +9,8 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod1
+# set $mod Mod1 (this is Alt; Mod4 is Windows/Super key)
+set $mod Mod4 
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -192,3 +193,6 @@ bar {
 ## My own shit
 # Setting the wallpaper
 exec --no-startup-id /usr/bin/feh --bg-scale /opt/desktop_wallpaper.jpg
+# Setting 2 monitors
+set $primary Virtual1
+set $secondary Virtual2
