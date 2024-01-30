@@ -27,3 +27,10 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.opt.hlsearch = true
+
+vim.opt.cursorline = true
+
+
+-- vim.opt.mouse = "a"
+-- vim.opt.clipboard = "unnamed,unnamedplus"
+-- vim.opt.colorcolumn = "80"
