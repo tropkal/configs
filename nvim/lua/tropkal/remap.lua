@@ -36,6 +36,10 @@ vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
 vim.keymap.set("n", "<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 -- single line, make it work mb?
 
+-- duplicate line
+vim.keymap.set("n", "<leader>d", "yyp")
+vim.keymap.set("n", "<leader>D", "yyP")
+
 -- executes chmod +x <file>
 vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 -- executes the script 
