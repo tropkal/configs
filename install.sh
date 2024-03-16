@@ -92,6 +92,8 @@ for item in "${array[@]}"; do
             sudo apt-get install golang-1.21 -y > /dev/null && \
             sudo apt-get install python3-venv -y > /dev/null && \
             sudo apt-get install software-properties-common -y > /dev/null && \
+            # install python3-launchpadlib so the add-apt-repository cmd doesnt fail
+            sudo apt-get install python3-launchpadlib -y > /dev/null && \
             # add the neovim-ppa/unstable repo and install neovim
             sudo add-apt-repository ppa:neovim-ppa/unstable > /dev/null && \
             sudo apt-get update > /dev/null && \
