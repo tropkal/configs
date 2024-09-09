@@ -121,7 +121,7 @@ if [ -d ~/.config/i3 ] && installed_i3=true; then
     cp i3/config ~/.config/i3/config && cp i3/desktop_wallpaper.jpg /opt/desktop_wallpaper.jpg
 fi
 
-cp -r nvim/ ~/.config
+mkdir ~/.config/nvim/ && cp -r nvim/ ~/.config/nvim/
 
 # copy the `robbyrussell_modified` zsh theme
 echo "[!] Copying the zsh theme"
