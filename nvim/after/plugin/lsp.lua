@@ -6,7 +6,7 @@ require("mason").setup({})
 require("mason-lspconfig").setup({
     -- Replace the language servers listed here 
     -- with the ones you want to install
-    ensure_installed = {"tsserver", "rust_analyzer", "bashls", "clangd", "gopls", "lua_ls", "pylsp"},
+    ensure_installed = {"ts_ls", "rust_analyzer", "bashls", "clangd", "gopls", "lua_ls", "pylsp"},
     handlers = {
         lsp.default_setup,
     },
